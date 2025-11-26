@@ -1,0 +1,28 @@
+
+.block{
+    animation: block 3.5s infinite linear;
+}
+
+.block-2{
+    animation: block2 3.5s infinite linear;
+}
+
+.hole{
+    top: -500px;
+    animation: block 3.5s infinite linear;
+}
+
+.hole-2{
+    top: -500px;
+    animation: block2 3.5s infinite linear;
+}
+
+@keyframes block2{
+    0%{left:1100px}
+    100%{left:-100px}
+}
+
+@keyframes block{
+    0%{left:600px}
+    100%{left:-600px}
+}
