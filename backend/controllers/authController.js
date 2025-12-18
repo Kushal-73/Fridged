@@ -6,13 +6,7 @@ export async function login(req, res) {
  const { name, password } = req.body;
 
  try {
-    res.cookie('accessToken', accessToken, {
-            httpOnly: true,
-            secure:false,
-            sameSite: 'Strict', 
-            domain: 'localhost',
-            maxAge: 20 * 24 * 60 * 60 * 1000 
-        });
+
 
         if(!name || !password){
             return res.status(400).json( {message: "Both fields are required"} );
@@ -38,6 +32,12 @@ export async function login(req, res) {
         }); 
 
         //adding accessToken to cookie
+            res.cookie('accessToken', accessToken, {
+            httpOnly: true,
+            secure:true,
+            sameSite: 'Strict', 
+            maxAge: 20 * 24 * 60 * 60 * 1000 
+        });
         
         res.status(200).json({ success: true, user: existingUser });
     } catch (error) {
