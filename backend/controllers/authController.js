@@ -33,10 +33,10 @@ export async function login(req, res) {
 
         //adding accessToken to cookie
             res.cookie('accessToken', accessToken, {
-            httpOnly: true,
-            secure:true,
-            sameSite: 'Strict', 
-            maxAge: 20 * 24 * 60 * 60 * 1000 
+        httpOnly: true,
+        secure: process.env.NODE_ENV==="production", 
+        sameSite: 'Strict', 
+        maxAge: 20 * 24 * 60 * 60 * 1000 
         });
         
         res.status(200).json({ success: true, user: existingUser });
