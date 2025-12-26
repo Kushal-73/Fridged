@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useQueryClient, useMutation } from '@tanstack/react-query';
 import { logIn } from '../lib/api'
 import '../text.css';
+import { Link } from 'react-router';
 
 
 const LoginPage = () => {
@@ -39,7 +40,7 @@ const LoginPage = () => {
             <form onSubmit={handleSubmit} >
               <div className='space-y-4'>
 
-                  <div className='font-bold opacity-75 text-center text-mint_green'> Good to have you back!</div>
+                  <div className='font-bold opacity-75 text-center text-mint_green'> Good to have you back , first time {` `}<Link to='/signup' className='text-primary hover:underline'>SignUp</Link></div>
                  
                   {error && (
                 <div className='alert alert-error mb-4'>
